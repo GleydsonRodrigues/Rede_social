@@ -1,0 +1,130 @@
+body{
+    background-color: #353333;
+    color: white;
+}
+.menu-principal{
+    background-color: #1f1f1f;
+    color: white;
+    padding: 15px 5px;
+}
+
+.logo{
+    color: white;
+}
+.botao-home{
+    border: solid 1px black;
+    background: white;
+    color: black;
+    width: 100%;
+
+}
+.conteudo-pagina{
+     margin-top: 20px;
+     padding-left: 3px;
+    
+}
+.side-bar{
+    background-color: #353333;
+    border-radius: 30px;
+    padding: 10px 5px;
+   
+}
+.side-bar:hover{
+    background-color: #1f1f1f;
+    border-radius: 10px;
+}
+.imagens-em-pesquisa{
+    width: 70px; 
+    height: 70px; 
+    border-radius:100%;
+}
+.imagem-perfil-home{
+    width: 40px; 
+    height: 40px; 
+    border-radius:100%;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.usuario-pesquisado{
+    background: #1f1f1f;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    color: white;
+    text-align: left; 
+    padding: 15px;
+    margin: 5px;
+}
+.capa-perfil{
+    height: 400px;
+    background-color:#353333;
+    border: 0px;
+   
+}
+.perfil-pesquisado{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.imagem-perfil{
+   
+    margin: 0 auto;
+    margin-top: -140px;
+    display: inline;
+}  
+.nome-perfil{
+    font-size: 15px;
+    text-align: center;
+} 
+.editar-foto-capa{
+    margin-top: -35px;
+}
+.editar-foto-perfil{
+    margin-left: -15px;
+}
+
+
+/* Publicações Home */
+.textoPubli{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 20px 20px 10px; 
+     
+
+}
+.publicacoes{
+    
+    margin: 5px 5px 5px 10px;
+    padding-left: 5px;
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    display: block;
+    
+    
+
+}
+input[type="file"]{
+    display: none;
+}
+.botao-publi{
+    background-color: rgba(77, 77, 224, 0.952);
+    width: 100%;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 0;
+    color: white;
+    cursor: pointer;
+}

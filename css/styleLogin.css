@@ -1,0 +1,44 @@
+.form{
+    display: table;
+}
+.form-no-meio-da-tela{
+    display: table-cell;
+    vertical-align: middle;
+    height: 500px; 
+    width: 50%; 
+}
+.texto-login{
+    padding: 15px;
+    text-align: center;
+}
+.input{
+    border: solid 2px rgb(10, 161, 161);
+}
+.coluna-form{
+    margin-top: 15px;
+}
+.imagem-principal{
+    height: 100%;
+    width: 100%;
+    background-image: url('../img/imagem-modelo.png');
+}
+.cadastro{
+    width: 100px;
+    margin: 0 auto;
+}
+.botao{
+    background: #0dd639;
+    color: white;
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+.botoes-login{
+    margin-top: 20px;
+}
+.form-cadastro{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
