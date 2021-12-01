@@ -3,7 +3,7 @@
 session_start();
 if($_SESSION['verificarFoto'] == "validado"){
     $idUsuario = $_SESSION['idusuario'];
-    echo $idUsuario;
+    //echo $idUsuario;
     include("Classes/Conecta.php");
     $conectar = new Conexao;
     $conexao = $conectar->conecta("localhost", "root", "", "rede_social", "3306");
