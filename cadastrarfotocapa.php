@@ -3,7 +3,7 @@
 session_start();
 if($_SESSION['verificarFoto'] == "validado"){
     $idUsuario = $_SESSION['idusuario'];
-    echo $idUsuario;
+    //echo $idUsuario;
     include("Classes/Conecta.php");
     $conectar = new Conexao;
     $conexao = $conectar->conecta("localhost", "root", "", "rede_social", "3306");
@@ -53,7 +53,7 @@ if($_SESSION['verificarFoto'] == "validado"){
                 $sql = ("UPDATE tbl_usuario SET ImagemCapa = '$novoNome' WHERE CodigoUsuario = '$idUsuario'");
                 if($conexao->query($sql)){
                     
-                    echo "Feito com sucesso, volte para a pagina de login clicando <a href='index.php'>aqui</a>";
+                    $mensagem = "Feito com sucesso, volte para a pagina de login clicando <a href='index.php'>aqui</a>";
                 }
                 else{
                     $mensagem = "Falha";
@@ -101,8 +101,8 @@ if($_SESSION['verificarFoto'] == "validado"){
                 <button type="submit" name="enviarFotoPerfil">enviar</button>
             </form>
             <form action="" method="POST" enctype="multipart/form-data">
-                <label for="foto-capa">foto Capa</label>
-                <input type="file" name="foto-capa" id="foto-capa">
+                <label for="">foto Capa</label>
+                <input type="file" name="foto-capa">
                 <button type="submit" name="enviarFotoCapa">enviar</button>
             </form>
         </div>
