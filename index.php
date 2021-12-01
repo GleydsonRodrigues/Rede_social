@@ -54,8 +54,8 @@ if (isset($_POST["email"])) {
     <div class="container">
         <div class="row">
             <div class="col-7">
-                <div class="imagem-principal">
-
+                <div>
+                    <img class="imagem-principal" src="img/imagem-modelo.png" alt="">
                 </div>
             </div>
             <div class="col-5">
@@ -92,13 +92,18 @@ if (isset($_POST["email"])) {
 
             </div>
         </div>
-        <div class="alert alert-danger" role="alert">
+        
             <?php 
             if (isset($_POST["email"])){
-                echo $mensagem; 
+
+                echo "
+                <div class='alert alert-danger' role='alert'>
+                echo $mensagem;
+                </div> 
+                ";
             }
             ?>
-        </div>
+       
     </div>
 
 
