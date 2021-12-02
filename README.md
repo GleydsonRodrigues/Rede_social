@@ -12,16 +12,15 @@
  + HTML
  + CSS
 
-## Necessário rodar o site
+## Necessário para rodar o site
 
  + Xampp
  
 O banco de dados utilizado é um banco de dados local. Para ter todas as funcionalidades é necessario criar um banco de dados com o mesmo nome, tabelas e colunas.
 
-Nome do banco:
+Nome do banco: rede_social
 
-
-Tabelas: 
+#### Tabelas: 
  
  tbl_usuario
  <table>
