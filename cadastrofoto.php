@@ -104,7 +104,7 @@ if($_SESSION['verificarFoto'] == "validado"){
             <form action="" method="POST" enctype="multipart/form-data">
                 <label for="foto-de-perfil">foto Perfil</label>
                 <input type="file" name="foto-perfil" id="foto-de-perfil">
-                <button type="submit" name="enviarFotoPerfil">enviar</button>
+                <button type="submit" name="enviarFotoPerfil">Enviar</button>
             </form>
             <div class="img-previewPerfil" >
                 <?php 
@@ -120,7 +120,7 @@ if($_SESSION['verificarFoto'] == "validado"){
             <form action="" method="POST" enctype="multipart/form-data">
                 <label for="foto-capa">foto Capa</label>
                 <input type="file" name="foto-capa" id="foto-capa">
-                <button type="submit" name="enviarFotoCapa">enviar</button>
+                <button type="submit" name="enviarFotoCapa">Enviar</button>
             </form>
             <div class="img-previewCapa" >
                 <?php 

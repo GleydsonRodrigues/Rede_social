@@ -30,33 +30,40 @@ include_once("layout/topo.php");
             </a>
         </div>
 
-        <div class="col-5">
-        <div class="container-fluid">
+        <div class="col-6">
 
-        <div class="publicacoes">
-                <form action="">
-                    <textarea name="txtPublicidade" id="" class="textoPubli" placeholder="Digite o texto da sua publicação aqui"></textarea>
-                    <div class="row">
-                        <div class="col-4 ">
-                            <label for="EnviarFotos" class="botao-publi">Fotos</label>
-                            <input type="file" name="EnviarFotos" id="EnviarFotos" >
-                        </div>
-                        <div class="col-4">
-                            <label for="EnviarVideos" class="botao-publi">Videos</label>
-                            <input type="file" name="EnviarVideos" id="EnviarVideos">
-                        </div>
-                        <div class="col-4">
-                            <input type="submit" name="btnPublicar" value="Publicar" class="botao-publi">
-                        </div>
-                
+            <div class="container">
+                <div class="row">
+                    <div class="publicacoes">
+                        <form action="">
+                            <textarea name="txtPublicidade" id="" class="textoPubli" placeholder="Digite o texto da sua publicação aqui"></textarea>
+                            <div class="row">
+                                <div class="col-4 ">
+                                    <label for="EnviarFotos" class="botao-publi">Fotos</label>
+                                    <input type="file" name="EnviarFotos" id="EnviarFotos" >
+                                </div>
+                                <div class="col-4">
+                                    <label for="EnviarVideos" class="botao-publi">Videos</label>
+                                    <input type="file" name="EnviarVideos" id="EnviarVideos">
+                                </div>
+                                <div class="col-4">
+                                    <input type="submit" name="btnPublicar" value="Publicar" class="botao-publi">
+                                </div>
+                        
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
+                <div class="row">
+                    <div class="publicacoes">
+                            <div class="imagemPost">
+                                <img src="<?php echo "usuarios/$idUsuario/$imagemUsuario"; ?>" alt="teste" width=100%>
+                            </div>
+                    </div>
+                </div>    
             </div>
-        </div>
-            
-        </div>
         <div class="col-3">
-
+            
         </div>
     </div>
 </div>

@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # Teste_rede_social
 
 > Status: Em desenvolvimento
@@ -36,3 +38,4 @@ Nome do banco: rede_social
 
  </tr>
  </table>
+>>>>>>> 10aadfcd1d54f55949725642e099a2ebb2eca1be
