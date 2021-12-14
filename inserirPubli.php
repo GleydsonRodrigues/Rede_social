@@ -1,61 +1,55 @@
 <?php
 //validando a sessão 
-include_once("Classes/validacao.php");
+session_start();
+if (!isset($_SESSION['usuPubli'])) {
+    header('location: home.php');
+    exit();
+}else{
+    $idUsuario = $_SESSION['usuPubli'];
+    include_once("Classes/Conecta.php");
+    $conectar = new Conexao;
+    $conexao = $conectar->conecta('localhost', 'root', '', 'rede_social', '3306');
+}
 
-$sql = ("SELECT * from tbl_usuario where CodigoUsuario = '$idUsuario'");
+$diretorioFinal = $_SESSION['imgPubli'];
 
-if ($query = $conexao->query($sql)) {
-    $linha = $query->fetch_array();
-    $imagemUsuario = $linha['ImagemPerfil'];
-    $nome = $linha['Nome'];
-    $sobrenome = $linha['Sobrenome'];
-} else {
-    echo "errado";
+if(isset($_POST["confirmar"])){
+    $sql = "Insert into tbl_publicacao (ImgemPubli, CodigoUsuario) Values('$diretorioFinal', '$idUsuario')";
+    if($conexao->query($sql)){
+                                                                         
+        header('Location: home.php');
+        unset($_SESSION['usuPubli']);
+        exit();
+    }
+    else{ 
+        $mensagem = "Falha";
+    }
 }
 
 
-
-if(isset($_POST['btnPublicar'])){
-    $formatosPermitidos = array('jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF');
-    $extensao = pathinfo($_FILES['EnviarFotos']['name'], PATHINFO_EXTENSION);
-
-   
-
-    if(in_array($extensao, $formatosPermitidos)){
-        $pasta = "usuarios/".$idUsuario."/publicacaoes";
-
-        if(!file_exists($pasta)){
-            mkdir($pasta,0777);
-        }
-
-        $temporario = $_FILES['EnviarFotos']['tmp_name'];
-        $novoNome = uniqid().".$extensao";
-        $diretorioFinal =  $pasta."/".$novoNome;
-
-        if(move_uploaded_file($temporario, $diretorioFinal)){
-            $sql = "Insert into tbl_publicacao (ImgemPubli, CodigoUsuario) Values('$diretorioFinal', '$idUsuario')";
-            if($conexao->query($sql)){
-                                                                                 
-                $fotoPerfilAceita = true;
-
-
-                unset($_POST["btnPublicar"]);
-            }
-            else{
-                $mensagem = "Falha";
-            }
-        }
-        else{
-            $mensagem = "Erro no upload";
-        }
-    }
-    else{
-        $mensagem = "Extensão não aceitavel";
-    }
-    
-}
-
-
-$nome_pagina = 'Home';
+$nome_pagina = 'confirmar';
 include_once("layout/topo.php");
+
+
+echo"
+
+ ";
+
 ?>
+<div class='container'>
+    <div class="row">
+
+        <div class="col-6">
+            <div class='publicacoes'>
+                <div class='imagemPost'>
+                    <img src='<?php echo "$diretorioFinal";?>' alt='teste' width=100%>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <form action="" method="post">
+                <input type="submit" name="confirmar" value="Confirmar">
+            </form>
+        </div>
+    </div>
+</div>   

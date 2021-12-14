@@ -31,19 +31,12 @@ if(isset($_POST['btnPublicar'])){
         $temporario = $_FILES['EnviarFotos']['tmp_name'];
         $novoNome = uniqid().".$extensao";
         $diretorioFinal =  $pasta."/".$novoNome;
-
+ 
         if(move_uploaded_file($temporario, $diretorioFinal)){
-            $sql = "Insert into tbl_publicacao (ImgemPubli, CodigoUsuario) Values('$diretorioFinal', '$idUsuario')";
-            if($conexao->query($sql)){
-                                                                                 
-                $fotoPerfilAceita = true;
-
-
-                unset($_POST["btnPublicar"]);
-            }
-            else{
-                $mensagem = "Falha";
-            }
+            $_SESSION['imgPubli'] = $diretorioFinal;
+            $_SESSION['usuPubli'] = $idUsuario;
+            header('Location: inserirPubli.php');
+            exit();
         }
         else{
             $mensagem = "Erro no upload";
