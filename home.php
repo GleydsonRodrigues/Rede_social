@@ -14,6 +14,41 @@ if ($query = $conexao->query($sql)) {
 }
 
 
+
+if(isset($_POST['btnPublicar'])){
+    $formatosPermitidos = array('jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF');
+    $extensao = pathinfo($_FILES['EnviarFotos']['name'], PATHINFO_EXTENSION);
+
+   
+
+    if(in_array($extensao, $formatosPermitidos)){
+        $pasta = "usuarios/".$idUsuario."/publicacaoes";
+
+        if(!file_exists($pasta)){
+            mkdir($pasta,0777);
+        }
+
+        $temporario = $_FILES['EnviarFotos']['tmp_name'];
+        $novoNome = uniqid().".$extensao";
+        $diretorioFinal =  $pasta."/".$novoNome;
+ 
+        if(move_uploaded_file($temporario, $diretorioFinal)){
+            $_SESSION['imgPubli'] = $diretorioFinal;
+            $_SESSION['usuPubli'] = $idUsuario;
+            header('Location: inserirPubli.php');
+            exit();
+        }
+        else{
+            $mensagem = "Erro no upload";
+        }
+    }
+    else{
+        $mensagem = "Extensão não aceitavel";
+    }
+    
+}
+
+
 $nome_pagina = 'Home';
 include_once("layout/topo.php");
 ?>
@@ -35,18 +70,14 @@ include_once("layout/topo.php");
             <div class="container">
                 <div class="row">
                     <div class="publicacoes">
-                        <form action="">
+                        <form method="post" enctype="multipart/form-data">
                             <textarea name="txtPublicidade" id="" class="textoPubli" placeholder="Digite o texto da sua publicação aqui"></textarea>
                             <div class="row">
-                                <div class="col-4 ">
+                                <div class="col">
                                     <label for="EnviarFotos" class="botao-publi">Fotos</label>
                                     <input type="file" name="EnviarFotos" id="EnviarFotos" >
                                 </div>
-                                <div class="col-4">
-                                    <label for="EnviarVideos" class="botao-publi">Videos</label>
-                                    <input type="file" name="EnviarVideos" id="EnviarVideos">
-                                </div>
-                                <div class="col-4">
+                                <div class="col" >
                                     <input type="submit" name="btnPublicar" value="Publicar" class="botao-publi">
                                 </div>
                         
@@ -54,13 +85,32 @@ include_once("layout/topo.php");
                         </form>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="publicacoes">
-                            <div class="imagemPost">
-                                <img src="<?php echo "usuarios/$idUsuario/$imagemUsuario"; ?>" alt="teste" width=100%>
+
+                <?php
+
+                $sqlPubli = ("SELECT * from tbl_publicacao");
+
+                if ($query = $conexao->query($sqlPubli)) {
+                    $linha = $query->fetch_array();
+                    $imagemPubli = $linha['ImgemPubli'];
+
+                echo"
+                    <div class='row'>
+                    <div class='publicacoes'>
+                            <div class='imagemPost'>
+                                
+                                <img src='$imagemPubli' alt='teste' width=100%>
                             </div>
                     </div>
-                </div>    
+                </div>    ";
+
+                } else {
+                    echo "errado";
+                }
+                
+                
+                ?>
+                        
             </div>
         <div class="col-3">
             

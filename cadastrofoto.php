@@ -17,7 +17,11 @@ if($_SESSION['verificarFoto'] == "validado"){
 
         if(in_array($extensao, $formatosPermitidos)){
             $pasta = "usuarios/".$idUsuario;
-            mkdir($pasta,0777);
+
+            if(!file_exists($pasta)){
+                mkdir($pasta,0777);
+            }
+
             $temporario = $_FILES['foto-perfil']['tmp_name'];
             $novoNome = uniqid().".$extensao";
 
