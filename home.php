@@ -67,7 +67,7 @@ include_once("layout/topo.php");
 
         <div class="col-6">
 
-            <div class="container">
+            <div class="container" style='padding: 0px 90px;'>
                 <div class="row">
                     <div class="publicacoes">
                         <form method="post" enctype="multipart/form-data">
@@ -88,24 +88,28 @@ include_once("layout/topo.php");
 
                 <?php
 
-                $sqlPubli = ("SELECT * from tbl_publicacao");
+                $sqlPubli = $conexao->query("SELECT a.CodigoUsuario, a.ImagemPerfil, a.Nome, a.Sobrenome, b.ImgemPubli  from tbl_usuario a, tbl_publicacao b where a.CodigoUsuario = b.CodigoUsuario");
 
-                if ($query = $conexao->query($sqlPubli)) {
-                    $linha = $query->fetch_array();
+                while ($linha = $sqlPubli->fetch_array()) {               
+                    $codigoUsuPubli = $linha['CodigoUsuario'];
+                    $imagemPerfilPost = $linha['ImagemPerfil'];
                     $imagemPubli = $linha['ImgemPubli'];
+                    $nome = $linha['Nome'];
+                    $sobrenome = $linha['Sobrenome'];
 
                 echo"
-                    <div class='row'>
-                    <div class='publicacoes'>
-                            <div class='imagemPost'>
-                                
-                                <img src='$imagemPubli' alt='teste' width=100%>
-                            </div>
-                    </div>
-                </div>    ";
+                <div class='row'>
+                    <div class='publicacoes' style='padding: 0px;'>
 
-                } else {
-                    echo "errado";
+                        <img style='margin: 10px;' class='imagem-perfil-home' src='usuarios/$codigoUsuPubli/$imagemPerfilPost' alt='imagem Perfil' height='50px'>
+                        $nome $sobrenome
+                        <div class='imagemPost'>
+                            <img src='$imagemPubli' alt='imagem Publicação' width='100%'>
+
+                        </div>
+                    </div>
+                </div>";
+
                 }
                 
                 
