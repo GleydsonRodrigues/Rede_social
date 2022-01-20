@@ -67,7 +67,7 @@ if (isset($_POST["nome"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="css/styleLoginCadastro.css">
     <title>Cadastro</title>
 </head>
 
@@ -75,58 +75,53 @@ if (isset($_POST["nome"])) {
     
     <div class="container">
         <div class="row">
-            <div class="form">
-                <div class="form-no-meio-da-tela">
-                    <div class="">
-                        <p class="h2">Cadastro</p>
-                    </div>
+            <div class="col-6">
+                <div class="form">
+                    <p class="h2">Cadastro</p>
                     <form action="Cadastro.php" method="post">
-                        <div class="col-9">
+                            
 
-                            <div class="form-group row coluna-form">
-                                <div class="col-6">
-                                    <input type="text" class="form-control input" placeholder="Nome" name="nome">
-                                </div>
-
-
-                                <div class="col-6">
-                                    <input type="text" class="form-control input" placeholder="Sobrenome" name="sobrenome">
-                                </div>
-
+                        <div class="form-group row coluna-form">
+                            <div class="col-6">
+                                <input type="text" class="form-control input" placeholder="Nome" name="nome">
                             </div>
-                            <div class="form-group row coluna-form">
-                                <div class="col-12">
-                                    <input type="email" class="form-control input" placeholder="Email" name="email">
-                                </div>
+
+
+                            <div class="col-6">
+                                <input type="text" class="form-control input" placeholder="Sobrenome" name="sobrenome">
                             </div>
-                            <div class="form-group row coluna-form">
-                                <div class="col-6">
-                                    <input type="password" class="form-control input" placeholder="Senha" name="senha">
-                                </div>
-                                <div class="col-6">
-                                    <input type="password" class="form-control input" placeholder="Confirmar Senha" name="confsenha">
-                                </div>
-                            </div>
+
+                        </div>
+                        <div class="form-group row coluna-form">
                             <div class="col-12">
-                                <button class="btn botao" type="submit" value="cadastrar" name="btnCadastrar">Entrar</button>
+                                <input type="email" class="form-control input" placeholder="Email" name="email">
                             </div>
+                        </div>
+                        <div class="form-group row coluna-form">
+                            <div class="col-6">
+                                <input type="password" class="form-control input" placeholder="Senha" name="senha">
+                            </div>
+                            <div class="col-6">
+                                <input type="password" class="form-control input" placeholder="Confirmar Senha" name="confsenha">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn botao" type="submit" value="cadastrar" name="btnCadastrar">Entrar</button>
+                        </div>
                     </form>
-                    
                 </div>
             </div>
+            <div class="col-6">
+                <img src="img/imagem-cadastro.png" alt="">
+            </div>
         </div>
-        <?php
-        if (isset($_POST["nome"])) {
-            echo $mensagem;
-        }
-
-        ?>
-
-
     </div>
+    <?php
+    if (isset($_POST["nome"])) {
+        echo $mensagem;
+    }
 
-
-
+    ?>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
