@@ -1,11 +1,12 @@
-.form{
-    display: table;
+body{
+    margin: 0;
+    padding-top: 92px;
+    background-color: #353333;
 }
-.form-no-meio-da-tela{
-    display: table-cell;
-    vertical-align: middle;
-    height: 500px; 
-    width: 50%; 
+.form{
+    color: white;
+    display: table;
+    padding: 0px 20px;
 }
 .texto-login{
     padding: 15px;
@@ -17,10 +18,7 @@
 .coluna-form{
     margin-top: 15px;
 }
-.imagem-principal{
-    height: 100%;
-    width: 100%;
-}
+
 .cadastro{
     width: 100px;
     margin: 0 auto;
@@ -39,5 +37,16 @@
 .form-cadastro{
     width: 80%;
     margin: 0 auto;
-    margin-top: 100px;
+}
+.texto-cadastre-se{
+    margin-top: 5px;
+    
+
+}
+a{
+    text-decoration: none;
+    color: #0dd639;
+}
+a:hover{
+    color:white
 }

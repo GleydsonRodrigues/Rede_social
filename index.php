@@ -53,14 +53,14 @@ if (isset($_POST["email"])) {
    
     <div class="container">
         <div class="row">
-            <div class="col-7">
-                <div>
-                    <img class="imagem-principal" src="img/imagem-modelo.png" alt="">
+            <div class="col-12 col-sm-8">
+                <div class="imagem-principal">
+                    <img src="img/imagem-modelo.png" alt="">
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-sm-4">
                 <div class="form">
-                    <div class="form-no-meio-da-tela">
+                    <div>
                         <div class="texto-login">
                             <p class="h2">Login</p>
                         </div>
@@ -80,7 +80,7 @@ if (isset($_POST["email"])) {
                                 <div class="col-12">
                                     <button class="btn botao" type="submit" nome="entrar">Entrar</button>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 texto-cadastre-se">
                                     Caso não possua uma conta: <a href="Cadastro.php">Cadastre-se</a>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@ if (isset($_POST["email"])) {
 
                 echo "
                 <div class='alert alert-danger' role='alert'>
-                echo $mensagem;
+                $mensagem
                 </div> 
                 ";
             }

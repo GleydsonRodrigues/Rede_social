@@ -101,7 +101,7 @@ include_once("layout/topo.php");
                 <div class='row'>
                     <div class='publicacoes' style='padding: 0px;'>
 
-                        <img style='margin: 10px;' class='imagem-perfil-home' src='usuarios/$codigoUsuPubli/$imagemPerfilPost' alt='imagem Perfil' height='50px'>
+                        <a href='perfil.php?UsuarioPesquisado=$codigoUsuPubli'><img style='margin: 10px;' class='imagem-perfil-home' src='usuarios/$codigoUsuPubli/$imagemPerfilPost' alt='imagem Perfil' height='50px'></a>
                         $nome $sobrenome
                         <div class='imagemPost'>
                             <img src='$imagemPubli' alt='imagem Publicação' width='100%'>
