@@ -23,7 +23,7 @@ if($_SESSION['verificarFoto'] == "validado"){
             }
 
             $temporario = $_FILES['foto-perfil']['tmp_name'];
-            $novoNome = uniqid().".$extensao";
+            $novoNome = "fotoPerfil.$extensao";
 
             if(move_uploaded_file($temporario, $pasta."/".$novoNome)){
                 $sql = ("UPDATE tbl_usuario SET ImagemPerfil = '$novoNome' WHERE CodigoUsuario = '$idUsuario'");

@@ -12,6 +12,7 @@ if (!isset($_SESSION['usuPubli'])) {
 }
 
 $diretorioFinal = $_SESSION['imgPubli'];
+$mensagem = $_SESSION['mensagemPost'];
 
 if(isset($_POST["confirmar"])){
     $sql = "Insert into tbl_publicacao (ImgemPubli, CodigoUsuario) Values('$diretorioFinal', '$idUsuario')";
@@ -47,6 +48,7 @@ echo"
             </div>
         </div>
         <div class="col-6">
+            <p><?php echo "$mensagem";?></p>
             <form action="" method="post">
                 <input type="submit" name="confirmar" value="Confirmar">
             </form>

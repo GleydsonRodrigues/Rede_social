@@ -123,6 +123,7 @@ input[type="file"]{
 }
 .imgPerfil-preview{
     border: white 1px solid;
+    display: block;
     height: 50px;
     width: 50px;
 }

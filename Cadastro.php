@@ -111,8 +111,8 @@ if (isset($_POST["nome"])) {
                     </form>
                 </div>
             </div>
-            <div class="col-6">
-                <img src="img/imagem-cadastro.png" alt="">
+            <div class="col-6" style="text-align: right;">
+                <img src="img/imagem-cadastro.png">
             </div>
         </div>
     </div>

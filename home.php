@@ -18,7 +18,7 @@ if ($query = $conexao->query($sql)) {
 if(isset($_POST['btnPublicar'])){
     $formatosPermitidos = array('jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF');
     $extensao = pathinfo($_FILES['EnviarFotos']['name'], PATHINFO_EXTENSION);
-
+    $mensagemPost = $_POST['txtPublicidade'];
    
 
     if(in_array($extensao, $formatosPermitidos)){
@@ -35,6 +35,7 @@ if(isset($_POST['btnPublicar'])){
         if(move_uploaded_file($temporario, $diretorioFinal)){
             $_SESSION['imgPubli'] = $diretorioFinal;
             $_SESSION['usuPubli'] = $idUsuario;
+            $_SESSION['mensagemPost'] = $mensagemPost;
             header('Location: inserirPubli.php');
             exit();
         }
