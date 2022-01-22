@@ -15,7 +15,7 @@ $diretorioFinal = $_SESSION['imgPubli'];
 $mensagem = $_SESSION['mensagemPost'];
 
 if(isset($_POST["confirmar"])){
-    $sql = "Insert into tbl_publicacao (ImgemPubli, CodigoUsuario) Values('$diretorioFinal', '$idUsuario')";
+    $sql = "Insert into tbl_publicacao (ImgemPubli, CodigoUsuario, MensagemPost) Values('$diretorioFinal', '$idUsuario', '$mensagem')";
     if($conexao->query($sql)){
                                                                          
         header('Location: home.php');

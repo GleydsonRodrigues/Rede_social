@@ -89,7 +89,7 @@ include_once("layout/topo.php");
 
                 <?php
 
-                $sqlPubli = $conexao->query("SELECT a.CodigoUsuario, a.ImagemPerfil, a.Nome, a.Sobrenome, b.ImgemPubli  from tbl_usuario a, tbl_publicacao b where a.CodigoUsuario = b.CodigoUsuario");
+                $sqlPubli = $conexao->query("SELECT a.CodigoUsuario, a.ImagemPerfil, a.Nome, a.Sobrenome, b.ImgemPubli, b.MensagemPost  from tbl_usuario a, tbl_publicacao b where a.CodigoUsuario = b.CodigoUsuario");
 
                 while ($linha = $sqlPubli->fetch_array()) {               
                     $codigoUsuPubli = $linha['CodigoUsuario'];
@@ -97,6 +97,7 @@ include_once("layout/topo.php");
                     $imagemPubli = $linha['ImgemPubli'];
                     $nome = $linha['Nome'];
                     $sobrenome = $linha['Sobrenome'];
+                    $mensagem = $linha['MensagemPost'];
 
                 echo"
                 <div class='row'>
@@ -106,7 +107,7 @@ include_once("layout/topo.php");
                         $nome $sobrenome
                         <div class='imagemPost'>
                             <img src='$imagemPubli' alt='imagem Publicação' width='100%'>
-
+                            <p class='mensagem-post'>$nome $sobrenome: $mensagem</p>
                         </div>
                     </div>
                 </div>";
