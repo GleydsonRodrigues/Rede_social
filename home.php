@@ -64,6 +64,11 @@ include_once("layout/topo.php");
                     <?php echo "$nome $sobrenome"; ?>
                 </div>
             </a>
+            <a href="">
+                <div class="side-bar">
+                    <img src="img/ic-amigos.png" alt="" class="imagem-perfil-home"> Amigos
+                </div>
+            </a>
         </div>
 
         <div class="col-6">
@@ -107,7 +112,8 @@ include_once("layout/topo.php");
                         $nome $sobrenome
                         <div class='imagemPost'>
                             <img src='$imagemPubli' alt='imagem Publicação' width='100%'>
-                            <p class='mensagem-post'>$nome $sobrenome: $mensagem</p>
+                            ";echo !empty($mensagem) ? "<p class='mensagem-post'>$nome $sobrenome $mensagem</p>":""; 
+                        echo"
                         </div>
                     </div>
                 </div>";
