@@ -65,3 +65,40 @@ include_once('layout/topo.php');
         
     </div>
 </div>
+
+<div class="container">
+<div class="col-12 publicacao col-sm-7">
+
+
+<?php
+
+$sqlPubli = $conexao->query("SELECT a.CodigoUsuario, a.ImagemPerfil, a.Nome, a.Sobrenome, b.ImgemPubli  from tbl_usuario a, tbl_publicacao b where a.CodigoUsuario = b.CodigoUsuario");
+
+while ($linha = $sqlPubli->fetch_array()) {               
+    $codigoUsuPubli = $linha['CodigoUsuario'];
+    $imagemPerfilPost = $linha['ImagemPerfil'];
+    $imagemPubli = $linha['ImgemPubli'];
+    $nome = $linha['Nome'];
+    $sobrenome = $linha['Sobrenome'];
+
+echo"
+<div class='row'>
+    <div class='publicacoes' style='padding: 0px;'>
+
+        <a href='perfil.php?UsuarioPesquisado=$codigoUsuPubli'><img style='margin: 10px;' class='imagem-perfil-home' src='usuarios/$codigoUsuPubli/$imagemPerfilPost' alt='imagem Perfil' height='50px'></a>
+        $nome $sobrenome
+        <div class='imagemPost'>
+            <img src='$imagemPubli' alt='imagem Publicação' width='100%'>
+
+        </div>
+    </div>
+</div>";
+
+}
+
+
+?>
+
+</div>
+</div>
+
